@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skills Security Review</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">SecuritySkills</p>
+        <h1>Skills Security Review</h1>
+        <p class="hero-copy">
+          Upload a ZIP skill archive and the page will run the Python review engine from this project.
+          You will get the risk level, priority checks, issue lists, and a structural summary.
+        </p>
+      </section>
+
+      <section class="panel upload-panel">
+        <form id="review-form" class="upload-form">
+          <label class="dropzone" for="archive">
+            <input id="archive" name="archive" type="file" accept=".zip" required>
+            <span class="dropzone-title">Choose a ZIP archive</span>
+            <span class="dropzone-copy">Local upload is supported. The default size limit is 10 MB.</span>
+          </label>
+          <button id="submit-button" type="submit">Start Review</button>
+        </form>
+        <p id="status" class="status">Waiting for a file upload.</p>
+      </section>
+
+      <section id="result-shell" class="result-shell is-hidden">
+        <section class="panel summary-grid" id="summary-grid"></section>
+        <section class="panel">
+          <div class="section-heading">
+            <h2>Check Categories</h2>
+            <p>Start with higher-severity checks, then inspect the supporting details.</p>
+          </div>
+          <div id="checks" class="check-grid"></div>
+        </section>
+        <section class="panel">
+          <div class="section-heading">
+            <h2>High-Risk Findings</h2>
+            <p>This section shows the key risk signals identified by the engine.</p>
+          </div>
+          <div id="issues" class="list-stack"></div>
+        </section>
+        <section class="panel">
+          <div class="section-heading">
+            <h2>Observations</h2>
+            <p>These are not necessarily malicious, but they are worth a second look.</p>
+          </div>
+          <div id="observations" class="list-stack"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
+
+
+
+
