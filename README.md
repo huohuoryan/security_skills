@@ -1,4 +1,4 @@
-![HomepageDisplay](docs\images\Skills_SR.png)
+![HomepageDisplay](docs/images/Skills_SR.png)
 # SecuritySkills
 
 SecuritySkills is a small standalone Flask app for reviewing uploaded skill archives.
